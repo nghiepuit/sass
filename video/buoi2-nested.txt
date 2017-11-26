@@ -1,0 +1,80 @@
+﻿1. Quy tắc Nested
+Cách định dạng thông thường : Chia sublime thành 2 phần để demo
+
+<div class="container">
+  <div class="child">
+    <a href="#">Lorem</a>
+  </div>
+  <p>
+    Khóa học về scss
+  </p>
+</div
+
+=> Cách viết thông thường để định dạng thẻ a, p
+div.container div.child a{
+  color : red;
+  font-weight : bold;
+}
+div.container div.child p{
+  color: blue;
+  border-bottom : solid 1px red;
+}
+
+=> Viết bằng scss
+div.container{
+   div.child{
+      a{
+
+      }
+      p{
+
+      }
+   }  
+}
+
+2. Thuộc tính : demo
+div.container{
+   div.child{
+      a{
+	font:{
+	   size: 30px;
+	   weight : bold;
+           style: italic
+	}
+      }
+      p{
+
+      }
+   }  
+}
+3. Reference parent :
+_
+div.container{
+   div.child{
+      a{
+	font:{
+	   size: 30px;
+	   weight : bold;
+           style: italic
+	}
+        // C2 : dấu & đại diện cho thẻ a.
+	&:hover{
+	   background-color : red;
+	}
+      }
+      // C1
+      a:hover{
+ 	background-color : red;
+      }
+      &:hover
+      p{
+
+      }
+   }  
+}
+=> Chỗ nào có dấu & thay bằng cha của nó;
+Mở rộng :
+#main {
+  color: black;
+  &-sidebar { border: 1px solid; }
+}

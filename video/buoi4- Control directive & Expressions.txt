@@ -1,0 +1,54 @@
+﻿1. Cách sử dụng điều kiện IF => đúng thì thực hiện
+$type: "USA";
+p{
+  @if ($type == USA and 1 == 1) { color : blue; }
+  @else if $type == VN { color : red; }
+  @else { color: green; }
+}
+
+2. Vòng lặp for
+
+@for $i from 1 through 6{
+   h#{$i}{
+      width: 2px * $i;
+   }
+}
+
+_ Mở rộng với lists :
+$arrElement : left, content, right
+$arrBackgroundColors : 'red', 'green', 'blue'
+$len : length($arrElement) // tổng số phần tử
+
+@for $i from 1 through $len{
+   #{nth($arrElement, $i)}{
+        background-color : #{ nth($arrBackgroundColors, $i) }
+   }
+}
+
+3. While tương tự for
+4. Each
+
+$logos : chipu, minhhang, kaity;
+@each $item in logos{
+   .logo-#{$item}{
+      background-image: url("#{$image}/#{item}.png");
+   }
+}
+$logos : chipu, minhhang, kaity;
+$borders : 'red', green, blue;
+@each $logo, $border in $logos, $borders {
+   .logo-#{$logo}{
+      background-image: url("#{$image}/#{item}.png");
+      border: solid 1px $border
+   }
+}
+
+5. Map
+
+$map: (usa : 'red', vn : 'blue', canada : 'green');
+@each $key, $value in $map{
+   .#{$key}{
+     background-color : #{$value}
+   }
+}
+
