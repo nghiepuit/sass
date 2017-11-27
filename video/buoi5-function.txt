@@ -1,0 +1,27 @@
+﻿1. Tạo function :
+// div: 3 cột => 3 thẻ p => mỗi thẻ p 40px => cách tay trái, phải 10px
+$total = 8
+@function column-width($col){
+  @return $col/$total;
+}
+
+@for $i from 1 through $total{
+   .col-#{$i}{
+      width: column-width($i)
+   }
+}
+
+2. function có sẵn
+percentage($number)
+
+VD2:
+$str: "title";
+div{
+   @if(str-length($str) >= 5){
+	background-color : red
+   }else{
+	// green
+   }
+}
+
+

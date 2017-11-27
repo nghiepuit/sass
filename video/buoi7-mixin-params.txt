@@ -1,0 +1,23 @@
+﻿1. Sử dụng
+
+@mixin layout($background, $fontSize, $color : red){
+    background-color : $background;
+    font-size : $fontSize;
+    color : $color;
+}
+
+h1{ @include layout(red, 18px, white)
+h2{ @include layout(green, 18px)
+h3{ @include layout(blue, 18px, yellow)
+
+_ Mở rộng :
+
+@mixin setColors($text, $background, $border){
+   color : $text;
+   background-color : $background;
+   border-color : $border
+}
+$params : red, green, blue
+.title{
+   @include setColors($value...)
+}
